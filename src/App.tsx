@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Countdown from 'react-countdown'
+import { motion } from 'framer-motion'
 
+type RenderType = {
+    hours: number
+    minutes: number
+    seconds: number
+}
+const renderer = ({ hours, minutes, seconds }: RenderType) => {
+    return (
+        <div id="counter">
+            <motion.div
+                key={hours}
+                initial={{ opacity: 0, transform: 'translateY(-50px)' }}
+                animate={{ opacity: 1, transform: 'translateY(50px)' }}
+            >
+                <span>{hours}</span>
+            </motion.div>
+            <motion.div
+                key={minutes}
+                initial={{ opacity: 0, transform: 'translateY(-50px)' }}
+                animate={{ opacity: 1, transform: 'translateY(50px)' }}
+            >
+                <span>{minutes}</span>
+            </motion.div>
+            <motion.div
+                key={seconds}
+                initial={{ opacity: 0, transform: 'translateY(-50px)' }}
+                animate={{ opacity: 1, transform: 'translateY(50px)' }}
+            >
+                <span>{seconds}</span>
+            </motion.div>
+        </div>
+    )
+}
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <>
+            <Countdown
+                date={Date.now() + 10000}
+                renderer={renderer}
+                zeroPadTime={2}
+                zeroPadDays={2}
+            />
+        </>
+    )
 }
 
 export default App
