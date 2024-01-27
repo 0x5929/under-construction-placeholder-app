@@ -1,0 +1,34 @@
+{
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:@typescript-eslint/recommended",
+        "google",
+        "prettier",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:security/recommended-legacy",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:storybook/recommended"
+    ],
+    "rules": {
+        "require-jsdoc": "off",
+        "prettier/prettier": [
+            "error",
+            {
+                "semi": false
+            }
+        ],
+        "new-cap": 0,
+        "react/react-in-jsx-scope": 0,
+        "@typescript-eslint/quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ]
+    }
+}
