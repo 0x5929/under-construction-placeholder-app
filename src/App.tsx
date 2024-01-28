@@ -3,33 +3,39 @@ import Countdown from 'react-countdown'
 import { motion } from 'framer-motion'
 
 type RenderType = {
+    days: number
     hours: number
     minutes: number
     seconds: number
 }
-const renderer = ({ hours, minutes, seconds }: RenderType) => {
+const renderer = ({ days, hours, minutes, seconds }: RenderType) => {
     return (
         <div id="counter">
             <motion.div
-                key={hours}
                 initial={{ opacity: 0, transform: 'translateY(-50px)' }}
                 animate={{ opacity: 1, transform: 'translateY(50px)' }}
             >
-                <span>{hours}</span>
+                <span>{days} days</span>
             </motion.div>
             <motion.div
-                key={minutes}
                 initial={{ opacity: 0, transform: 'translateY(-50px)' }}
                 animate={{ opacity: 1, transform: 'translateY(50px)' }}
             >
-                <span>{minutes}</span>
+                <span>{hours} hours</span>
             </motion.div>
             <motion.div
-                key={seconds}
+                key={`${minutes}-minutes`}
                 initial={{ opacity: 0, transform: 'translateY(-50px)' }}
                 animate={{ opacity: 1, transform: 'translateY(50px)' }}
             >
-                <span>{seconds}</span>
+                <span>{minutes} minutes</span>
+            </motion.div>
+            <motion.div
+                key={`${seconds}-seconds`}
+                initial={{ opacity: 0, transform: 'translateY(-50px)' }}
+                animate={{ opacity: 1, transform: 'translateY(50px)' }}
+            >
+                <span>{seconds} seconds</span>
             </motion.div>
         </div>
     )
@@ -37,11 +43,12 @@ const renderer = ({ hours, minutes, seconds }: RenderType) => {
 function App() {
     return (
         <>
+            <h1>New site ready in</h1>
             <Countdown
-                date={Date.now() + 10000}
+                date={Date.now() + 1_037_000_000}
                 renderer={renderer}
                 zeroPadTime={2}
-                zeroPadDays={2}
+                daysInHours={true}
             />
         </>
     )
