@@ -45,7 +45,7 @@ function App() {
         <>
             <h1>New site ready in</h1>
             <Countdown
-                date={Date.now() + 1_037_000_000}
+                date={new Date('03-04-2024')}
                 renderer={renderer}
                 zeroPadTime={2}
                 daysInHours={true}
