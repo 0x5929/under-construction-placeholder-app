@@ -40,12 +40,14 @@ const renderer = ({ days, hours, minutes, seconds }: RenderType) => {
     )
 }
 
+const date = import.meta.env.VITE_DATE
+
 function Timer() {
     return (
         <>
             <h1>New site ready in</h1>
             <Countdown
-                date={new Date('03-04-2024')}
+                date={new Date(date)}
                 renderer={renderer}
                 zeroPadTime={2}
                 daysInHours={true}
