@@ -47,3 +47,6 @@
     align-items: center;
     gap: 5px;
 }
+.msg {
+    padding-top: 100px;
+}
