@@ -1,5 +1,5 @@
 const phone = '(844) 998-1033'
-const email = ''
+// const email = ''
 function Message() {
     return (
         <>
@@ -8,8 +8,8 @@ function Message() {
                 <p>
                     In the meantime, you can always reach us via phone or email.
                 </p>
-                <p>{phone}</p>
-                <p>{email}</p>
+                <p>Tel: {phone}</p>
+                {/*<p>Email: {email}</p> */}
             </div>
         </>
     )
